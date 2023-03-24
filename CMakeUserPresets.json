@@ -1,0 +1,10 @@
+{
+    "version": 4,
+    "vendor": {
+        "conan": {}
+    },
+    "include": [
+        "C:\\Users\\sakcakoc\\OneDrive - ASML\\Documents\\projects\\cpp\\StringCalculator\\out\\build\\CMakePresets.json",
+        "C:/Users/sakcakoc/OneDrive - ASML/Documents/projects/cpp/StringCalculator/out/build\\CMakePresets.json"
+    ]
+}
