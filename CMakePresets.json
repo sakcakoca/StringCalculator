@@ -1,0 +1,89 @@
+{
+    "version": 2,
+    "configurePresets": [
+        {
+            "name": "base",
+            "displayName": "Base configuration",
+            "description": "Sets Ninja generator, build and install directory",
+            "hidden": true,
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}"
+
+            }
+        },
+		{
+            "name": "x64base",
+            "displayName": "Base configuration for x64 architecture",
+            "description": "Sets x64 architecture on base configuration",
+            "hidden": true,
+            "inherits": "base",
+			"architecture": {
+				"value": "x64",
+				"strategy": "external"
+			}
+        },
+        {
+            "name": "gcc-x64-debug",
+            "displayName": "gcc x64 Debug",
+            "description": "Sets debug build type with gcc compiler and x64 architecture",
+            "inherits": "x64base",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "gcc",
+                "CMAKE_CXX_COMPILER": "g++",
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/out/build/conan_toolchain.cmake"
+            }
+        },
+        {
+            "name": "gcc-x64-release",
+            "displayName": "gcc x64 Release",
+            "description": "Sets release build type with gcc compiler and x64 architecture",
+            "inherits": "gcc-x64-debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "gcc-x64-relwithdebinfo",
+            "displayName": "gcc x64 Rel with debug info",
+            "description": "Sets RelWithDebInfo build type with gcc compiler and x64 architecture",
+            "inherits": "gcc-x64-debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "default-debug-build-gcc",
+            "displayName": "gcc x64 debug",
+            "configurePreset": "gcc-x64-debug",
+            "description": "Default gcc debug build"
+        },
+        {
+            "name": "default-release-build-gcc",
+            "displayName": "gcc x64 release",
+            "configurePreset": "gcc-x64-release",
+            "description": "Default gcc release build"
+        },
+        {
+            "name": "default-relwithdebinfo-build-gcc",
+            "displayName": "gcc x64 relwithdebinfo",
+            "configurePreset": "gcc-x64-relwithdebinfo",
+            "description": "Default gcc relwithdebinfo build"
+        }
+    ],
+    "testPresets": [
+        {
+            "name": "core-test-gcc",
+            "description": "Gcc test",
+            "configurePreset": "gcc-x64-debug",
+            "output": {
+                "outputOnFailure": true,
+                "verbosity": "verbose"
+            }
+        }
+    ]
+}
