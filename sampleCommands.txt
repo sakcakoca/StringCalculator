@@ -1,0 +1,2 @@
+Command for ctest: ctest --build-and-test . out --build-generator "Unix Makefiles" --verbose
+Command for cmake: cmake -B out --toolchain out/build/conan_toolchain.cmake -DCMAKE_BUILD_TYPE=DEBUG

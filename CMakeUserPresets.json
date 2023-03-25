@@ -4,7 +4,6 @@
         "conan": {}
     },
     "include": [
-        "C:\\Users\\sakcakoc\\OneDrive - ASML\\Documents\\projects\\cpp\\StringCalculator\\out\\build\\CMakePresets.json",
-        "C:/Users/sakcakoc/OneDrive - ASML/Documents/projects/cpp/StringCalculator/out/build\\CMakePresets.json"
+        "/home/salim/projects/cpp/StringCalculator/out/build/CMakePresets.json"
     ]
 }

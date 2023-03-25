@@ -83,7 +83,7 @@ std::tuple<std::string, size_t> StringCalculator::readSpecialDelimiterIfAvailabl
         const std::string delimiterDeclarationStart { "//" };
         const char delimiterDeclarationEnd = '\n';
 
-        if(str.substr(0, 2) == delimiterDeclarationStart)
+        if(str.starts_with(delimiterDeclarationStart))
         {
             std::stringstream delimiterSS;
 
