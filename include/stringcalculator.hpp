@@ -7,7 +7,7 @@ class StringCalculator
 {
 public:
     /// @brief Calculates sum of values in given string. If given string is not appropriate, function will throw exception.
-    /// @param numbers is the string argument which contains numbers and delimiters.
+    /// @param numbersString is the string argument which contains numbers and delimiters.
     /// @return Returns sum of values in given string.
     static int add(const std::string& numbersString);
 private:
