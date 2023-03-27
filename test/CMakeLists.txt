@@ -16,8 +16,7 @@ add_executable(${TEST_EXECUTABLE_NAME} StringCalculatorTester.cpp)
 # I'm using C++17 in the test
 target_compile_features(${TEST_EXECUTABLE_NAME} PRIVATE cxx_std_17)
 
-# Add coverage report generator flags
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage")
+
 
 # Should be linked to the main library, as well as the GoogleTest testing library
 target_link_libraries(${TEST_EXECUTABLE_NAME} PRIVATE stringcalc_library GTest::gtest GTest::gtest_main) #Catch2::Catch2)
