@@ -46,6 +46,9 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
   else()
     message(STATUS "Doxygen not found, not building docs")
   endif()
+
+  #Create a pvs analyzer project so it can create static analysis report
+  add_subdirectory(pvs)
 endif()
 
 # Add coverage report generator flags
@@ -80,6 +83,3 @@ if((CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME OR STRING_CALCULATOR_BUILD_TESTING)
    AND BUILD_TESTING)
   add_subdirectory(test)
 endif()
-
-#Execute pvs analyzer and create report
-include(cmake/ExecutePVSAnalyzer.cmake)
