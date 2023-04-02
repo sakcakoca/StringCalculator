@@ -2,6 +2,7 @@
 cmake_minimum_required(VERSION 3.20)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+#Execute conan install
 include(cmake/ExecuteConanInstall.cmake)
 
 # Project name and a few useful settings. Other commands can pick up the results
@@ -79,3 +80,6 @@ if((CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME OR STRING_CALCULATOR_BUILD_TESTING)
    AND BUILD_TESTING)
   add_subdirectory(test)
 endif()
+
+#Execute pvs analyzer and create report
+include(cmake/ExecutePVSAnalyzer.cmake)
