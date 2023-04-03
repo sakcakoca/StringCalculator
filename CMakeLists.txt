@@ -48,7 +48,14 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
   endif()
 
   #Create a pvs analyzer project so it can create static analysis report
-  add_subdirectory(pvs)
+  include(cmake/FindPVSExecutable.cmake)
+  find_PVS_executable(PVS_FOUND)
+  if(PVS_FOUND)
+    add_subdirectory(pvs)
+  else()
+    message(STATUS "PVS Studio executable not found, not building PVS target")
+  endif()
+  
 endif()
 
 # Add coverage report generator flags
