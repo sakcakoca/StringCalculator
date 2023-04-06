@@ -2,6 +2,10 @@
 cmake_minimum_required(VERSION 3.20)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+# Set standard project settings
+include(cmake/StandardProjectSettings.cmake)
+include(cmake/PreventInSourceBuilds.cmake)
+
 #Execute conan install
 include(cmake/ExecuteConanInstall.cmake)
 
